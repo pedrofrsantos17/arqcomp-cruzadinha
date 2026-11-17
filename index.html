@@ -1,11 +1,256 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jogo de cruzadinha para praticar conceitos de Arquitetura Computacional.">
+
+  <title>Cruzadinha de Arquitetura Computacional</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
+
 <body>
-    
+
+  <header class="site-header">
+    <div class="header-inner">
+
+      <a class="brand" href="#inicio">
+        <span class="brand-mark">AC</span>
+        <span>ARQUITETURA
+          <span class="brand-light">COMPUTACIONAL</span>
+        </span>
+      </a>
+
+      <span class="header-tag">SPTECH SCHOOL · CCO</span>
+
+    </div>
+  </header>
+
+  <main class="page-shell" id="inicio">
+
+    <section class="intro-section">
+
+      <p class="eyebrow">DESAFIO DE APRENDIZAGEM</p>
+
+      <h1>
+        Cruzadinha de
+        <span>Arquitetura Computacional</span>
+      </h1>
+
+      <p class="intro-copy">
+        Leia as pistas, descubra os conceitos e preencha
+        o tabuleiro. Cada palavra se conecta a pelo menos uma outra.
+      </p>
+
+      <div class="quick-stats">
+
+        <div class="stat-pill">
+          <strong>14</strong>
+          <span>palavras</span>
+        </div>
+
+        <div class="stat-pill">
+          <strong>13 × 13</strong>
+          <span>tabuleiro</span>
+        </div>
+
+        <div class="stat-pill">
+          <strong>2</strong>
+          <span>direções</span>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="game-layout">
+
+      <!-- ÁREA DO TABULEIRO -->
+      <section class="board-card panel">
+
+        <div class="panel-heading">
+
+          <div>
+            <p class="eyebrow">SEU DESAFIO</p>
+            <h2>Tabuleiro</h2>
+          </div>
+
+          <span class="board-hint">
+            <span class="hint-dot"></span>
+            Uma letra por casa
+          </span>
+
+        </div>
+
+        <div class="board-scroll">
+
+          <div
+            id="board"
+            class="board"
+            role="grid"
+            aria-label="Tabuleiro com 13 linhas e 13 colunas">
+          </div>
+
+        </div>
+
+        <div class="board-legend">
+
+          <span>
+            <i class="legend-swatch legend-selected"></i>
+            Palavra selecionada
+          </span>
+
+          <span>
+            <i class="legend-swatch legend-correct"></i>
+            Correta
+          </span>
+
+          <span>
+            <i class="legend-swatch legend-incorrect"></i>
+            Incorreta
+          </span>
+
+        </div>
+
+        <div class="action-row">
+
+          <button
+            id="check-button"
+            class="button button-primary"
+            type="button">
+
+            ✓ Conferir respostas
+
+          </button>
+
+          <button
+            id="reset-button"
+            class="button button-secondary"
+            type="button">
+
+            ↻ Reiniciar
+
+          </button>
+
+        </div>
+
+        <div class="score-panel" aria-live="polite">
+
+          <div class="score-copy">
+
+            <span class="score-label">
+              SEU RESULTADO
+            </span>
+
+            <strong id="score-count">
+              0 de 14 palavras corretas
+            </strong>
+
+          </div>
+
+          <div class="score-track">
+
+            <div
+              id="score-progress"
+              class="score-progress">
+            </div>
+
+          </div>
+
+        </div>
+
+        <p
+          id="game-message"
+          class="game-message"
+          role="status">
+
+          Selecione uma pista para começar a preencher o tabuleiro.
+
+        </p>
+
+      </section>
+
+      <!-- ÁREA DAS PISTAS -->
+      <aside class="clues-card panel">
+
+        <div class="panel-heading clues-heading">
+
+          <div>
+            <p class="eyebrow">DESCUBRA AS PALAVRAS</p>
+            <h2>Pistas</h2>
+          </div>
+
+          <span class="clue-count">14 pistas</span>
+
+        </div>
+
+        <section class="clue-section">
+
+          <h3>
+            <span class="direction-icon">↔</span>
+            Horizontais
+          </h3>
+
+          <div
+            id="horizontal-clues"
+            class="clue-list">
+          </div>
+
+        </section>
+
+        <section class="clue-section">
+
+          <h3>
+            <span class="direction-icon">↕</span>
+            Verticais
+          </h3>
+
+          <div
+            id="vertical-clues"
+            class="clue-list">
+          </div>
+
+        </section>
+
+        <div class="how-to-play">
+
+          <h3>Como jogar</h3>
+
+          <ol>
+            <li>
+              Escolha uma pista horizontal ou vertical.
+            </li>
+
+            <li>
+              Digite uma letra em cada casa destacada.
+            </li>
+
+            <li>
+              Use Backspace para apagar e as setas para navegar.
+            </li>
+
+            <li>
+              Clique em Conferir respostas para ver seu resultado.
+            </li>
+          </ol>
+
+        </div>
+
+      </aside>
+
+    </section>
+
+    <footer class="page-footer">
+
+      <span>Atividade de Arquitetura Computacional</span>
+      <span>HTML · CSS · JavaScript</span>
+
+    </footer>
+
+  </main>
+
 </body>
 </html>
