@@ -145,6 +145,9 @@ const botaoConferir =
 const botaoReiniciar =
   document.getElementById("reset-button");
 
+const botaoConsultarRespostas =
+  document.getElementById("answers-button");
+
 // Variáveis de controle.
 
 let matriz = [];
@@ -1093,6 +1096,63 @@ function conferirRespostas() {
 }
 
 
+// CONSULE AS RESPOSTAS NO TABULEIRO.
+
+function consultarRespostas() {
+
+  resultadoConferido = true;
+
+  palavras.forEach((palavra) => {
+
+    palavra.posicoes.forEach((posicao) => {
+
+      const celula = celulasPorPosicao.get(
+        `${posicao.linha}-${posicao.coluna}`
+      );
+
+      if (celula) {
+
+        celula.entrada.value = posicao.letra;
+
+        celula.casa.classList.add("is-correct");
+
+      }
+
+    });
+
+  });
+
+  palavras.forEach((palavra) => {
+
+    palavra.status = "correct";
+
+    palavra.botaoPista.classList.remove(
+      "status-correct",
+      "status-incorrect",
+      "status-incomplete"
+    );
+
+    palavra.botaoPista.classList.add(
+      "status-correct"
+    );
+
+    palavra.botaoPista.querySelector(
+      ".clue-status"
+    ).textContent = "✓";
+
+  });
+
+  atualizarPontuacao(palavras.length);
+
+  elementoMensagem.textContent =
+    "Respostas consultadas. Revise o tabuleiro e confira novamente se precisar.";
+
+  elementoMensagem.className =
+    "game-message is-success";
+
+}
+
+
 // ATUALIZA A PONTUAÇÃO.
 
 function atualizarPontuacao(acertos) {
@@ -1208,6 +1268,11 @@ botaoConferir.addEventListener(
 botaoReiniciar.addEventListener(
   "click",
   reiniciarJogo
+);
+
+botaoConsultarRespostas.addEventListener(
+  "click",
+  consultarRespostas
 );
 
 
